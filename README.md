@@ -1,6 +1,6 @@
 # Coding-Quiz
 
-This project involved creating a web-based coding quiz with a time limit,mutliple-choice questions, and a polished, responsive user interface. The application uses HTML, CSS and is powered by JavaScript.
+This project involved creating a web-based coding quiz with a time limit, mutliple-choice questions, and a polished, responsive user interface. The application uses HTML, CSS and is powered by JavaScript.
 
 ## Deployment Application 
 <img src = "assets/images/Screen Shot 2023-10-30 at 11.39.56 PM.png">

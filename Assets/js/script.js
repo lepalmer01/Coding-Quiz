@@ -85,7 +85,7 @@ function endQuiz() {
 
 //Function to store user input
 function storage() {
-    var userInitials = input.ariaValueMax
+    var userInitials = input.value 
 
     if (userInitials !== "") {
         scoreArr = JSON.parse(localStorage.getItem("highScore")) || []
