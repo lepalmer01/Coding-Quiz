@@ -36,17 +36,19 @@ function startQuiz() {
     }
 }
 
-//Create countdown timer for quiz 
+//Create countdown timer for quiz
 function startTimer() {
     timer = setInterval(function () {
         timerCount--;
         timerElement.textContent = timerCount
 
-        if (timerCount == 0) {
+        if (timerCount === 0) {
             endQuiz()
+
         }
     }, 1000)
 }
+
 
 //Verify user input
 function checkAnswer(answer) {
