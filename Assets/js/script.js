@@ -5,6 +5,16 @@ var startContainer = document.querySelector("start-container")
 var quizContainer = document.querySelector(".quiz-container")
 var questionEl = document.getElementById("question")
 var btnList = document.querySelector(".btn-list")
+var inputForm = document.querySelector(".input-form")
+var input = document.getElementById("input")
+var submitBtn = document.getElementById("submit-btn")
+var answerStatus = document.querySelector(".answer-status")
+
+var timer;
+var timerCount = 60
+var index = 0
+var score = 0
+var scoreArr = []
 
 
 //Create function to initiate quiz, display questions and multiple choice answers to user
@@ -27,7 +37,7 @@ function startQuiz() {
 }
 
 //Create countdown timer for quiz 
-function setTimer() {
+function startTimer() {
     timer = setInterval(function () {
         timerCount--;
         timerElement.textContent = timerCount
@@ -38,10 +48,38 @@ function setTimer() {
     }, 1000)
 }
 
+//Verify user input
+function checkAnswer(answer) {
+    if (answer === theQuestions[index].correct) {
+        answerStatus.textContent = "Correct!"
+        answerStatus.style.color = "grey"
+        setTimeout(() => {
+            answerStatus.textContent = ""
+            index++;
+            score++;
+            startQuiz()
+        }, 1200)
+
+    } else {
+        answerStatus.textContent = "Opps, incorrect!"
+        answerStatus.style.color = "red"
+        setTimeout(() => {
+            answerStatus.textContent = ""
+            index++;
+            timerCount -= 10
+            startQuiz()
+        }, 1200)
+    }
+}
 
 
 
 
+//Add event listener to start quiz button
+startButton.addEventListener("click", () => {
+    startQuiz()
+    startTimer()
+});
 
 
 
