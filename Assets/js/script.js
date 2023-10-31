@@ -26,6 +26,18 @@ function startQuiz() {
     }
 }
 
+//Create countdown timer for quiz 
+function setTimer() {
+    timer = setInterval(function () {
+        timerCount--;
+        timerElement.textContent = timerCount
+
+        if (timerCount == 0) {
+            endQuiz()
+        }
+    }, 1000)
+}
+
 
 
 
