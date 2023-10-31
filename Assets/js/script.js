@@ -1,7 +1,7 @@
 
 var timerElement = document.querySelector(".timer");
-var startButton = document.querySelector("#start-button");
-var startContainer = document.querySelector("start-container")
+var startButton = document.querySelector(".start-button");
+var startContainer = document.querySelector(".start-container")
 var quizContainer = document.querySelector(".quiz-container")
 var questionEl = document.getElementById("question")
 var btnList = document.querySelector(".btn-list")
@@ -77,11 +77,14 @@ function endQuiz() {
     clearInterval(timer)
     quizContainer.style.display = "none"
     inputForm.classList.replace("hide", "show")
+
+
 }
 
+//Function to store user input
 function storage() {
     var userInitials = input.ariaValueMax
-    
+
     if (userInitials !== "") {
         scoreArr = JSON.parse(localStorage.getItem("highScore")) || []
 
@@ -102,6 +105,7 @@ startButton.addEventListener("click", () => {
     startTimer()
 
 });
+
 //Add event listener tom grab text content of clicked answer and validate user input
 btnList.addEventListener("click", () => {
     var userChoice = this.event.target.textContent
@@ -110,26 +114,6 @@ btnList.addEventListener("click", () => {
 
 //Add event listener to submit button for storage
 submitBtn.addEventListener("click", storage)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Create array to store questions, answers and correct answer
