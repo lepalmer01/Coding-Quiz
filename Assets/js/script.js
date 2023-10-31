@@ -72,16 +72,44 @@ function checkAnswer(answer) {
     }
 }
 
+//End quiz function
+function endQuiz() {
+    clearInterval(timer)
+    quizContainer.style.display = "none"
+    inputForm.classList.replace("hide", "show")
+}
 
+function storage() {
+    var userInitials = input.ariaValueMax
+    
+    if (userInitials !== "") {
+        scoreArr = JSON.parse(localStorage.getItem("highScore")) || []
 
+        var userObj = {
+            initials: userInitials,
+            score: score
+        }
 
-//Add event listener to start quiz button
+        scoreArr.push(userObj)
+        localStorage.setItem("highScore", JSON.stringify(scoreArr))
+        window.location.assign("score.html")
+    }
+}
+
+// Add event listener to start quiz button
 startButton.addEventListener("click", () => {
     startQuiz()
     startTimer()
+
 });
+//Add event listener tom grab text content of clicked answer and validate user input
+btnList.addEventListener("click", () => {
+    var userChoice = this.event.target.textContent
+    checkAnswer(userChoice);
+})
 
-
+//Add event listener to submit button for storage
+submitBtn.addEventListener("click", storage)
 
 
 
